@@ -29,6 +29,11 @@ public class GovtJuniorController {
 
 	private final GovtJuniorService govtJuniorService;
 
+	/**
+	 * @author sreekanth.g
+	 * @param entity
+	 * @return 
+	 */
 	@PostMapping("/create")
 	public ResponseEntity<String> createStudent(@Valid @RequestBody GovtJuniorEntity entity){
 		log.info("START :: {} :: createStudent()", this.getClass().getSimpleName());
@@ -37,6 +42,9 @@ public class GovtJuniorController {
 		return new ResponseEntity<String>("Student created successfully.",HttpStatus.CREATED);
 	}
 
+	/**@author sreekanth.g
+	 * @return
+	 */
 	@GetMapping("/getAllStudents")
 	public ResponseEntity<List<GovtJuniorEntity>> getAllStudents(){
 		log.info("START::{}::getAllStudents()",this.getClass().getSimpleName());
@@ -45,6 +53,10 @@ public class GovtJuniorController {
 		return new ResponseEntity<List<GovtJuniorEntity>>(allStudensts,HttpStatus.OK);
 	}
 
+	/**@author sreekanth.g
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/ById/{id}")
 	public ResponseEntity<GovtJuniorEntity> getStudentById(@PathVariable Integer id){
 		log.info("START::{}::getStudentById()::id={}",this.getClass().getSimpleName(),id);
@@ -53,6 +65,10 @@ public class GovtJuniorController {
 		return new ResponseEntity<GovtJuniorEntity>(student,HttpStatus.OK);
 	}
 
+	/**@author sreekanth.g
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/ById")
 	public ResponseEntity<GovtJuniorEntity> getByIdUsingRequestParam(@RequestParam Integer id){
 		log.info("START::{}::getByIdUsingRequestParam()::id={}",this.getClass().getSimpleName(),id);
@@ -62,6 +78,10 @@ public class GovtJuniorController {
 	}
 
 
+	/**@author sreekanth.g
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<String> delete(@PathVariable Integer id){
 		log.info("START::{}::delete()",this.getClass().getSimpleName());
@@ -70,6 +90,11 @@ public class GovtJuniorController {
 		return new ResponseEntity<String>("Student Deleted Successfully...",HttpStatus.OK);
 	}
 
+	/**@author sreekanth.g
+	 * @param id
+	 * @param entity
+	 * @return
+	 */
 	@PutMapping("/update/{id}")
 	public ResponseEntity<GovtJuniorEntity> update(@PathVariable Integer id, @Valid @RequestBody GovtJuniorEntity entity){
 		log.info("START::{}::update()::id={}",this.getClass().getSimpleName(),id);
