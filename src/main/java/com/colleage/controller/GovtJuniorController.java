@@ -108,8 +108,14 @@ public class GovtJuniorController {
         return ResponseEntity.ok(student);
     }
 
+    /**
+     * @author sreekanth.g
+     * @param s
+     * @return
+     *
+     */
     @GetMapping("/hello")
-    public ResponseEntity<String> getMessage() {
+    public ResponseEntity<String> getMessage(String s) {
         return new ResponseEntity<>("Hello Sreekanth", HttpStatus.OK);
     }
 
