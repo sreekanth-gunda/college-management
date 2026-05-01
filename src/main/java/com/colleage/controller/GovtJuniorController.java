@@ -119,9 +119,9 @@ public class GovtJuniorController {
         return new ResponseEntity<>("Hello Sreekanth", HttpStatus.OK);
     }
 
-	@GetMapping("/greet")
-	public String greet(){
-		return "Hi good morning";
+	@GetMapping("/show")
+	public String show(){
+		return "show";
 	}
 
 }
