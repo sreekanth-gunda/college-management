@@ -27,101 +27,106 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class GovtJuniorController {
 
-	private final GovtJuniorService govtJuniorService;
+    private final GovtJuniorService govtJuniorService;
 
-	/**
-	 * @param entity
-	 * @return
-	 * @author sreekanth.g 
-	 */
-	@PostMapping("/create")
-	public ResponseEntity<String> createStudent(@Valid @RequestBody GovtJuniorEntity entity) {
-		log.info("START :: {} :: createStudent()", this.getClass().getSimpleName());
-		govtJuniorService.createStudent(entity);
-		log.info("END :: {} :: createStudent()", this.getClass().getSimpleName());
-		return new ResponseEntity<String>("Student created successfully.", HttpStatus.CREATED);
-	}
+    /**
+     * @param entity
+     * @return
+     * @author sreekanth.g
+     */
+    @PostMapping("/create")
+    public ResponseEntity<String> createStudent(@Valid @RequestBody GovtJuniorEntity entity) {
+        log.info("START :: {} :: createStudent()", this.getClass().getSimpleName());
+        govtJuniorService.createStudent(entity);
+        log.info("END :: {} :: createStudent()", this.getClass().getSimpleName());
+        return new ResponseEntity<String>("Student created successfully.", HttpStatus.CREATED);
+    }
 
-	/**
-	 * @return
-	 * @author sreekanth.g
-	 */
-	@GetMapping("/getAllStudents")
-	public ResponseEntity<List<GovtJuniorEntity>> getAllStudents() {
-		log.info("START::{}::getAllStudents()", this.getClass().getSimpleName());
-		List<GovtJuniorEntity> allStudensts = govtJuniorService.getAllStudents();
-		log.info("END::{}::getAllStudents()", this.getClass().getSimpleName());
-		return new ResponseEntity<List<GovtJuniorEntity>>(allStudensts, HttpStatus.OK);
-	}
+    /**
+     * @return
+     * @author sreekanth.g
+     */
+    @GetMapping("/getAllStudents")
+    public ResponseEntity<List<GovtJuniorEntity>> getAllStudents() {
+        log.info("START::{}::getAllStudents()", this.getClass().getSimpleName());
+        List<GovtJuniorEntity> allStudensts = govtJuniorService.getAllStudents();
+        log.info("END::{}::getAllStudents()", this.getClass().getSimpleName());
+        return new ResponseEntity<List<GovtJuniorEntity>>(allStudensts, HttpStatus.OK);
+    }
 
-	/**
-	 * @param id
-	 * @return
-	 * @author sreekanth.g
-	 */
-	@GetMapping("/ById/{id}")
-	public ResponseEntity<GovtJuniorEntity> getStudentById(@PathVariable Integer id) {
-		log.info("START::{}::getStudentById()::id={}", this.getClass().getSimpleName(), id);
-		GovtJuniorEntity student = govtJuniorService.getStudentById(id);
-		log.info("END::{}::getStudentById()", this.getClass().getSimpleName());
-		return new ResponseEntity<GovtJuniorEntity>(student, HttpStatus.OK);
-	}
+    /**
+     * @param id
+     * @return
+     * @author sreekanth.g
+     */
+    @GetMapping("/ById/{id}")
+    public ResponseEntity<GovtJuniorEntity> getStudentById(@PathVariable Integer id) {
+        log.info("START::{}::getStudentById()::id={}", this.getClass().getSimpleName(), id);
+        GovtJuniorEntity student = govtJuniorService.getStudentById(id);
+        log.info("END::{}::getStudentById()", this.getClass().getSimpleName());
+        return new ResponseEntity<GovtJuniorEntity>(student, HttpStatus.OK);
+    }
 
-	/**
-	 * @param id
-	 * @return
-	 * @author sreekanth.g
-	 */
-	@GetMapping("/ById")
-	public ResponseEntity<GovtJuniorEntity> getByIdUsingRequestParam(@RequestParam Integer id) {
-		log.info("START::{}::getByIdUsingRequestParam()::id={}", this.getClass().getSimpleName(), id);
-		GovtJuniorEntity student = govtJuniorService.getStudentById(id);
-		log.info("END::{}::getByIdUsingRequestParam()", this.getClass().getSimpleName());
-		return new ResponseEntity<GovtJuniorEntity>(student, HttpStatus.OK);
-	}
+    /**
+     * @param id
+     * @return
+     * @author sreekanth.g
+     */
+    @GetMapping("/ById")
+    public ResponseEntity<GovtJuniorEntity> getByIdUsingRequestParam(@RequestParam Integer id) {
+        log.info("START::{}::getByIdUsingRequestParam()::id={}", this.getClass().getSimpleName(), id);
+        GovtJuniorEntity student = govtJuniorService.getStudentById(id);
+        log.info("END::{}::getByIdUsingRequestParam()", this.getClass().getSimpleName());
+        return new ResponseEntity<GovtJuniorEntity>(student, HttpStatus.OK);
+    }
 
 
-	/**
-	 * @param id
-	 * @return
-	 * @author sreekanth.g
-	 */
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> delete(@PathVariable Integer id) {
-		log.info("START::{}::delete()", this.getClass().getSimpleName());
-		govtJuniorService.delete(id);
-		log.info("END::{}::delete()", this.getClass().getSimpleName());
-		return new ResponseEntity<String>("Student Deleted Successfully...", HttpStatus.OK);
-	}
+    /**
+     * @param id
+     * @return
+     * @author sreekanth.g
+     */
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Integer id) {
+        log.info("START::{}::delete()", this.getClass().getSimpleName());
+        govtJuniorService.delete(id);
+        log.info("END::{}::delete()", this.getClass().getSimpleName());
+        return new ResponseEntity<String>("Student Deleted Successfully...", HttpStatus.OK);
+    }
 
-	/**
-	 * @param id
-	 * @param entity
-	 * @return
-	 * @author sreekanth.g
-	 */
-	@PutMapping("/update/{id}")
-	public ResponseEntity<GovtJuniorEntity> update(@PathVariable Integer id, @Valid @RequestBody GovtJuniorEntity entity) {
-		log.info("START::{}::update()::id={}", this.getClass().getSimpleName(), id);
-		GovtJuniorEntity student = govtJuniorService.update(id, entity);
-		log.info("END::{}::update()", this.getClass().getSimpleName());
-		return ResponseEntity.ok(student);
-	}
+    /**
+     * @param id
+     * @param entity
+     * @return
+     * @author sreekanth.g
+     */
+    @PutMapping("/update/{id}")
+    public ResponseEntity<GovtJuniorEntity> update(@PathVariable Integer id, @Valid @RequestBody GovtJuniorEntity entity) {
+        log.info("START::{}::update()::id={}", this.getClass().getSimpleName(), id);
+        GovtJuniorEntity student = govtJuniorService.update(id, entity);
+        log.info("END::{}::update()", this.getClass().getSimpleName());
+        return ResponseEntity.ok(student);
+    }
 
-	/**
-	 * @author sreekanth.g
-	 * @param s
-	 * @return
-	 *
-	 */
-	@GetMapping("/hello")
-	public ResponseEntity<String> getMessage(String s) {
-		return new ResponseEntity<>("Hello Sreekanth", HttpStatus.OK);
-	}
+    /**
+     * @author sreekanth.g
+     * @param s
+     * @return
+     *
+     */
+    @GetMapping("/hello")
+    public ResponseEntity<String> getMessage(String s) {
+        return new ResponseEntity<>("Hello Sreekanth", HttpStatus.OK);
+    }
 
-	@GetMapping("/greet")
-	public String greet(){
-		return "Hi good morning";
+    @GetMapping("/greet")
+    public String greet(){
+        return "Hi good morning";
+    }
+
+	@GetMapping("/show")
+	public String show(){
+		return "show ";
 	}
 
 }
