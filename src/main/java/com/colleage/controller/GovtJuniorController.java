@@ -32,7 +32,7 @@ public class GovtJuniorController {
     /**
      * @param entity
      * @return
-     * @author sreekanth.g
+     * @author sreekanth.g 
      */
     @PostMapping("/create")
     public ResponseEntity<String> createStudent(@Valid @RequestBody GovtJuniorEntity entity) {
