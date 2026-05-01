@@ -121,7 +121,7 @@ public class GovtJuniorController {
 
 	@GetMapping("/show")
 	public String show(){
-		return "show";
+		return "show ";
 	}
 
 }
